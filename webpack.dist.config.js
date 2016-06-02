@@ -53,11 +53,11 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader'
     }, {
-      test: /\.css$/,
+      test: /\.scss$/,
       loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 version'
     }, {
-      test: /\.scss/,
-      loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!sass-loader?outputStyle=expanded&indentedSyntax'
+      test: /\.sass/,
+      loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!sass-loader?outputStyle=expanded'
     }, {
       test: /\.json$/,
       loader: 'json-loader'

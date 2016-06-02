@@ -47,7 +47,7 @@ module.exports = {
       loader: 'react-hot!babel-loader'
     }, {
       test: /\.scss/,
-      loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!sass-loader?outputStyle=expanded&indentedSyntax'
+      loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!sass-loader?outputStyle=expanded'
     }, {
       test: /\.css$/,
       loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 version'
