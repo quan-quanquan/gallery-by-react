@@ -50,6 +50,7 @@ var GalleryByReactApp = React.createClass({
             {controllerUnits}
           </nav>
       </section>
+      
     );
   }
 });
