@@ -53,16 +53,16 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader'
     }, {
-      test: /\.scss$/,
+      test: /\.css$/,
       loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 version'
     }, {
-      test: /\.sass/,
+      test: /\.scss/,
       loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 version!sass-loader?outputStyle=expanded'
     }, {
       test: /\.json$/,
       loader: 'json-loader'
     }, {
-      test: /\.(png|jpg|woff|woff2)$/,
+      test: /\.(png|jpg|woff|woff2|ttf|svg|eot)$/,
       loader: 'url-loader?limit=8192'
     }]
   }

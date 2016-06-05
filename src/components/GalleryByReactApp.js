@@ -81,6 +81,36 @@ var ImgFigure = React.createClass({
 });
 
 
+//控制组件
+var ControllerUnit = React.createClass({
+
+  handleClick: function(e){
+    e.stopPropagation();
+    e.preventDefault();
+
+    if(this.props.arrange.isCenter){
+      this.props.inverse();
+    }else{
+      this.props.center();
+    }
+  },
+  render: function(){
+    var controllerUnitClassName = 'controller-unit';
+
+    if(this.props.arrange.isCenter){
+      controllerUnitClassName += ' is-center';
+
+      if(this.props.arrange.isInverse){
+        controllerUnitClassName += ' is-inverse';
+      }
+    }
+    return (
+      <span className={controllerUnitClassName} onClick={this.handleClick}></span>
+    );
+  }
+});
+
+
 /*
  *获取区间内的一个随机值
  */
@@ -291,7 +321,7 @@ var GalleryByReactApp = React.createClass({
     var controllerUnits = [],
         imgFigures = [];
 
-    //调用图片组件，并为其添加索引，以便为每一张图片计算位置
+    //调用图片组件和控制组件，并为其添加索引，设置图片状态
     imageDatas.forEach(function(value, index){
 
       if(!this.state.imgsArrangeArr[index]){
@@ -306,9 +336,14 @@ var GalleryByReactApp = React.createClass({
         };
       }
 
-      imgFigures.push(<ImgFigure data={value} ref={'imgFigure' + index}
-        arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)} center={this.center(index)}/>);
+    imgFigures.push(<ImgFigure key={index} data={value} ref={'imgFigure' + index}
+      arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)} center={this.center(index)}/>);
+
+    controllerUnits.push(<ControllerUnit key={index} arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)}
+      center={this.center(index)}/>);
+
     }.bind(this));
+
     //渲染整个舞台
     return (
       <section className="stage" ref="stage">
