@@ -1,5 +1,4 @@
-###这是慕课网上的一个学习案例
-http://www.imooc.com/learn/507
+###这是一个学习案例, 源作者 
 
 # gallery-by-react
 one photo gallery project based on react
